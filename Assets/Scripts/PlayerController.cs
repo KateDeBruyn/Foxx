@@ -12,8 +12,11 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     private Transform cameraTransorm;
+    public bool shotsFired;
 
-   
+    public GameManager GameManager;
+
+
 
 
     public float speed = 5f;
@@ -75,21 +78,33 @@ public class PlayerController : MonoBehaviour
 
     private void ShootGun()
     {
-        RaycastHit hit;
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-        BulletController bulletController = bullet.GetComponent<BulletController>();
-        if (Physics.Raycast(cameraTransorm.position, cameraTransorm.forward, out hit, Mathf.Infinity))
+
+        GameManager.Amo--;
+
+        if(GameManager.Amo <= 0)
         {
-
-            bulletController.target = hit.point;
-            bulletController.hit = true;
-
+            GameManager.Amo = 0;
         }
         else
         {
-            bulletController.target = cameraTransorm.position + cameraTransorm.forward * HitMissDistance;
-            bulletController.hit = false;
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (Physics.Raycast(cameraTransorm.position, cameraTransorm.forward, out hit, Mathf.Infinity))
+            {
+
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+
+            }
+            else
+            {
+                bulletController.target = cameraTransorm.position + cameraTransorm.forward * HitMissDistance;
+                bulletController.hit = false;
+            }
+
         }
+       
     }
 
     void Update()
