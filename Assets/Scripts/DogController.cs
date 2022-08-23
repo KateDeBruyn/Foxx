@@ -18,15 +18,6 @@ public class DogController : MonoBehaviour
     //public Collider dogCollider;
     #endregion
 
-    #region Spawn
-    //GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-    public GameObject dogPrefab;
-    [SerializeField]
-    private Transform _spawnPos;
-    [SerializeField]
-    private float _spawnTime = 10f;
-    #endregion
-
 
     private void Awake() {
         dogNavMeshAgent = GetComponent<NavMeshAgent>();
@@ -35,7 +26,7 @@ public class DogController : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating ("Spawn", _spawnTime, _spawnTime);
+        
     }
 
 
@@ -60,11 +51,6 @@ public class DogController : MonoBehaviour
             Debug.Log("I'm a slow boi");
             this.GetComponent<NavMeshAgent>().speed = dogSpeedMin;
         }  
-    }
-
-    private void Spawn()
-    {
-        GameObject dog = GameObject.Instantiate(dogPrefab, _spawnPos.position, Quaternion.identity);
     }
 
 }
