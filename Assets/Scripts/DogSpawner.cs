@@ -9,7 +9,7 @@ public class DogSpawner : MonoBehaviour
     [SerializeField]
     private Transform _spawnPos;
     [SerializeField]
-    private float _spawnTime = 10f;
+    private float _spawnTime = 15f;
     #endregion
 
     void Start()

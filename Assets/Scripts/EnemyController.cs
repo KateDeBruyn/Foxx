@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public GameObject hunter, player;
     public Transform playerPos;
     public float distanceA;
-    private bool _followAlways = false;
+    public bool followAlways = false;
     #endregion
 
     private void Awake() {
@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
     {
         InitiateFollow();
 
-        if(_followAlways == true)
+        if(followAlways == true)
         {
              _enemyNavMeshAgent.destination = playerPos.position;
         }
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
         if(distanceA <= 25){
 
             _enemyNavMeshAgent.destination = playerPos.position;
-            _followAlways = true;
+            followAlways = true;
         }
     }
 
