@@ -25,9 +25,10 @@ public class ReloadScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Reload();
     }
-    private void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -42,8 +43,24 @@ public class ReloadScript : MonoBehaviour
             }
 
         }
-
     }
+
+    /*private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+
+            if(GameManager.Amo <= 0)
+            {
+                canReload = true;
+            }
+            else if(GameManager.Amo <= 40)
+            {
+                canReload = false;
+            }
+
+        }
+    }*/
 
     private void OnEnable()
     {

@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       // This also wouldn't update to the true value if its not related to the reloadscript. This will only
+       // ever show the ammo going from 10 to 0.
         bulletCountTxt.text = Amo.ToString();
     }
 }
