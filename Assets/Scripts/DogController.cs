@@ -18,6 +18,11 @@ public class DogController : MonoBehaviour
     //public Collider dogCollider;
     #endregion
 
+    #region Health
+    [SerializeField]
+    private int dogHealth;
+    #endregion
+
 
     private void Awake() {
         dogNavMeshAgent = GetComponent<NavMeshAgent>();
@@ -26,7 +31,7 @@ public class DogController : MonoBehaviour
 
     void Start()
     {
-        
+        dogHealth = 3;
     }
 
 
@@ -36,6 +41,10 @@ public class DogController : MonoBehaviour
         dogNavMeshAgent.destination = playerPosition.position;
 
         this.GetComponent<NavMeshAgent>().speed = dogSpeedMax;
+
+        if(dogHealth <= 0){
+            Destroy(this);
+        }
     }
 
     /*private void Speed(){
@@ -50,6 +59,12 @@ public class DogController : MonoBehaviour
 
             Debug.Log("I'm a slow boi");
             this.GetComponent<NavMeshAgent>().speed = dogSpeedMin;
+        }  
+
+        if(collision.gameObject.tag == "Bullet"){
+
+            dogHealth -= 1;
+            Debug.Log(dogHealth);
         }  
     }
 
