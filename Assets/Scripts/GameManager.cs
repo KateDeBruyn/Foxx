@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public float Amo = 10f;
+    public float Amo = 30f;
 
     public float currenthealth = 10f;
     public float maxhealth = 10f;

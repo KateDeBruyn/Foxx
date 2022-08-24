@@ -16,16 +16,29 @@ public class ReloadScript : MonoBehaviour
 
     private InputAction reloadAction;
 
+    public Material[] material;
+    Renderer rend;
+
     // Start is called before the first frame update
     void Awake()
     {
         reloadAction = playerInput.actions["Reload"];
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
+        rend.sharedMaterial = material[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Reload();
+       if(canReload == true)
+        {
+            rend.sharedMaterial = material[1];
+        }
+       else if(canReload == false)
+        {
+            rend.sharedMaterial = material[0];
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,31 +49,18 @@ public class ReloadScript : MonoBehaviour
             if(GameManager.Amo <= 0)
             {
                 canReload = true;
+               
             }
             else if(GameManager.Amo <= 40)
             {
                 canReload = false;
+               
             }
 
         }
     }
 
-    /*private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-
-            if(GameManager.Amo <= 0)
-            {
-                canReload = true;
-            }
-            else if(GameManager.Amo <= 40)
-            {
-                canReload = false;
-            }
-
-        }
-    }*/
+   
 
     private void OnEnable()
     {
