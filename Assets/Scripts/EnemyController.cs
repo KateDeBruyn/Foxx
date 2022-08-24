@@ -17,13 +17,18 @@ public class EnemyController : MonoBehaviour
     public bool followAlways = false;
     #endregion
 
+    #region Health
+    [SerializeField]
+    private int hunterHealth;
+    #endregion
+
     private void Awake() {
         _enemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Start()
     {
-
+        hunterHealth = 50;
     }
 
 
@@ -35,6 +40,11 @@ public class EnemyController : MonoBehaviour
         {
              _enemyNavMeshAgent.destination = playerPos.position;
         }
+
+        if (hunterHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void InitiateFollow()
@@ -45,6 +55,17 @@ public class EnemyController : MonoBehaviour
 
             _enemyNavMeshAgent.destination = playerPos.position;
             followAlways = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+
+            hunterHealth -= 1;
+            Debug.Log(hunterHealth);
         }
     }
 

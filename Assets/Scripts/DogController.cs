@@ -43,7 +43,7 @@ public class DogController : MonoBehaviour
         this.GetComponent<NavMeshAgent>().speed = dogSpeedMax;
 
         if(dogHealth <= 0){
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -67,5 +67,7 @@ public class DogController : MonoBehaviour
             Debug.Log(dogHealth);
         }  
     }
+
+
 
 }

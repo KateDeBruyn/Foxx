@@ -49,6 +49,7 @@ public class ReloadScript : MonoBehaviour
             if(GameManager.Amo <= 0)
             {
                 canReload = true;
+                Reload();
                
             }
             else if(GameManager.Amo <= 40)
@@ -62,16 +63,6 @@ public class ReloadScript : MonoBehaviour
 
    
 
-    private void OnEnable()
-    {
-        reloadAction.performed += _ => Reload();
-
-    }
-
-    private void OnDisable()
-    {
-        reloadAction.performed -= _ => Reload();
-    }
 
 
 

@@ -11726,7 +11726,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 58b94099f046a564ba21ec1c7a448b86, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11828,6 +11828,7 @@ MonoBehaviour:
   playerPos: {fileID: 887646524}
   distanceA: 0
   followAlways: 0
+  hunterHealth: 0
 --- !u!4 &7687786773746221888
 Transform:
   m_ObjectHideFlags: 0
