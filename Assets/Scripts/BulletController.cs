@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bulletHole;
+    
 
     private float speed = 50f;
     private float timeToDestroy = 3f;
@@ -33,7 +32,7 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         ContactPoint contact = other.GetContact(0);
-        GameObject.Instantiate(bulletHole, contact.point + contact.normal * .0001f, Quaternion.LookRotation(contact.normal));
+        
         Destroy(gameObject);
         //if collision tag is enemy then subtract life points
     }

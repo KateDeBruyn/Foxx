@@ -280,15 +280,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464e49a485204284e92995966cc1a30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 8307861039994812592, guid: 12cb1870bd910774cb40010dd800c7ad,
+  playerPosition: {fileID: 1797381142886322267, guid: 6770796ec0e24bf4c9b2312c8f53ac14,
     type: 3}
   dogPos: {fileID: 958746602439739610}
   dogSpeedMax: 10
   dogSpeedMin: 7.5
-  dogPrefab: {fileID: 434023797309887072}
-  _spawnPos: {fileID: 2295830067818265187, guid: 44eb293e29f23e14a98d781f3582e2a1,
-    type: 3}
-  _spawnTime: 10
+  dogHealth: 0
+  dogDamage: 0
+  GM: {fileID: 0}
 --- !u!1 &481104048275803874
 GameObject:
   m_ObjectHideFlags: 0

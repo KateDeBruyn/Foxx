@@ -21,17 +21,26 @@ public class DogController : MonoBehaviour
     #region Health
     [SerializeField]
     private int dogHealth;
+
+    //Player's health and damage
+    [SerializeField]
+    private int dogDamage;
+    public GameObject GM;
+    private GameManager gameManager;
     #endregion
 
 
     private void Awake() {
         dogNavMeshAgent = GetComponent<NavMeshAgent>();
         //dogCollider = GetComponent<Collider>();
+
+        gameManager = GM.GetComponent<GameManager>();
     }
 
     void Start()
     {
         dogHealth = 3;
+        dogDamage = 3;
     }
 
 
@@ -57,8 +66,12 @@ public class DogController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player"){
 
-            Debug.Log("I'm a slow boi");
-            this.GetComponent<NavMeshAgent>().speed = dogSpeedMin;
+            this.gameObject.GetComponent<NavMeshAgent>().speed = dogSpeedMin;
+
+            gameManager.currenthealth -= dogDamage;
+
+            Debug.Log(gameManager.currenthealth);
+
         }  
 
         if(collision.gameObject.tag == "Bullet"){

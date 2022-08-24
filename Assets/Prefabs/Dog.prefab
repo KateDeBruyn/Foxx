@@ -590,6 +590,8 @@ MonoBehaviour:
   dogSpeedMax: 10
   dogSpeedMin: 7.5
   dogHealth: 0
+  dogDamage: 0
+  GM: {fileID: 1322998977884350662, guid: a5ae4915abe0a234981a404190d4ec3d, type: 3}
 --- !u!136 &1722798396549041032
 CapsuleCollider:
   m_ObjectHideFlags: 0

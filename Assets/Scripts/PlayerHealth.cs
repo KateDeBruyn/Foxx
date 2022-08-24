@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private Slider slider;
 
     public GameManager GameManager;
+    public DogController dogController;
 
     void Awake()
     {

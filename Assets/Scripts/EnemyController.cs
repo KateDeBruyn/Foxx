@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public class EnemyController : MonoBehaviour
         if (hunterHealth <= 0)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("EndScene");
         }
+
+
     }
 
     private void InitiateFollow()
